@@ -8,10 +8,10 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 // app.use(cors())
-main().catch(err => console.log(err));
-async function main() {
-  await mongoose.connect('mongodb://localhost/contactPage');
-}
+// main().catch(err => console.log(err));
+// async function main() {
+//   await mongoose.connect('mongodb://localhost/contactPage');
+// }
 // const contactSchema = new mongoose.Schema({
 //     name: String,
 //     email: String,
