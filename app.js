@@ -2,7 +2,8 @@ const express = require('express');
 const path = require('path');
 // const mongoose = require("mongoose")
 const bodyparser = require("body-parser");
-var mysql = require('mysql');
+// var mysql = require('mysql');
+const { Client } = require('pg')
 // const cors = require('cors')
 const app = express();
 const port = process.env.PORT || 3000;
@@ -20,15 +21,26 @@ const port = process.env.PORT || 3000;
 // });
 // const Contact = mongoose.model('contacts', contactSchema);
 
-const con = mysql.createConnection({
-    host: "dpg-cf9ousun6mpv49epnfc0-a",
-    user: "root",
-    password: "hUR7hbi0zmA3iqvXQsTjo1vNxKzIeCph",
-});
+// const con = mysql.createConnection({
+//     host: "dpg-cf9ousun6mpv49epnfc0-a",
+//     user: "root",
+//     password: "hUR7hbi0zmA3iqvXQsTjo1vNxKzIeCph",
+// });
 
-con.connect((err)=>{
-    if(err)throw err;
-    console.log("Connected");
+// con.connect((err)=>{
+//     if(err)throw err;
+//     console.log("Connected");
+// });
+const client = new Client({
+  user: 'root',
+  host: 'dpg-cf9ousun6mpv49epnfc0-a',
+  database: 'yoursalondb',
+  password: 'hUR7hbi0zmA3iqvXQsTjo1vNxKzIeCph',
+  port: 5432,
+})
+client.connect(function(err) {
+  if (err) throw err;
+  console.log("Connected!");
 });
 app.use(express.urlencoded())
 app.use(express.static("views"))
@@ -46,18 +58,18 @@ app.get("/artist-list", (req, res)=>{
     res.sendFile(__dirname+"/views/artist-list.html");
 })
 app.get("/salon-data", (req, res)=>{
-    con.query("SELECT * FROM yoursalondb.salon_details", function(err, result, fields){
+    client.query("SELECT * FROM yoursalondb.salon_details", function(err, result, fields){
         res.json(result)
     });
 })
-app.post("/contact", (req, res) => {
-    var mydata = new Contact(req.body)
-    mydata.save().then(()=>{
-        res.send(alert("yup"))
-    }).catch(()=>{
-        res.send("nope")
-    })
-})
+// app.post("/contact", (req, res) => {
+//     var mydata = new Contact(req.body)
+//     mydata.save().then(()=>{
+//         res.send(alert("yup"))
+//     }).catch(()=>{
+//         res.send("nope")
+//     })
+// })
 
 app.listen(port, ()=>{
     console.log("app is listening on port ", port);
