@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Helping Notes</title>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="media-query.css">
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
+        integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
+        crossorigin="anonymous"></script>
+
+
+</head>
+
+<body>
+    <main class="subBody">
+
+        <div class="side-back" style="background-image: url('./images/back.jpg');">
+        </div>
+        <header class="nav-header">
+            <nav class="desktop-navbar">
+                <div class="logo">
+                    <img src="./images/logo.png" alt="Helping Notes">
+                </div>
+
+                <ul class="nav-content">
+                    <a href="./home.html" class="nav-active">
+                        <li>Home</li>
+                        <div class="nav-slide"></div>
+                    </a>
+                    <div class="dropdown">
+                        <div class="notes-link text-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Notes
+                        </div>
+                        <ul class="dropdown-menu">
+
+                            <li><a class="dropdown-item" href="./calculus.html">Calculus</a></li>
+                            <li><a class="dropdown-item" href="./pre-calculus.html">Pre-Calculus</a></li>
+                            <li><a class="dropdown-item" href="./apphysics1.html">AP-Physics 1</a></li>
+                            <li><a class="dropdown-item" href="./apphysics2.html">AP-Physics 2</a></li>
+                            <li><a class="dropdown-item" href="./french.html">French</a></li>
+                            <li><a class="dropdown-item" href="./biology.html">Biology</a></li>
+                            <!-- <li onclick="physics_link()"><a class="dropdown-item" href="/physics">Calculus</a></li>
+                            <li onclick="preCalculus_link()"><a class="dropdown-item" href="/pre-calculus">Pre-Calculus</a></li>
+                            <li onclick="ABphysics1_link()"><a class="dropdown-item" href="/ap-physics1">AP-Physics 1</a></li>
+                            <li onclick="AB_physics2_link()"><a class="dropdown-item" href="/ap-physics2">AP-Physics 2</a></li>
+                            <li onclick="french_link()"><a class="dropdown-item" href="/french">French</a></li>
+                            <li onclick="biology_link()"><a class="dropdown-item" href="/biology">Biology</a></li> -->
+                        </ul>
+                        
+                        <div class="nav-slide"></div>
+                      </div>
+                    <a href="./about.html">
+                        <li>About Us</li>
+                        <div class="nav-slide"></div>
+                    </a>
+                </ul>
+                <div class="nav-contact">
+                    <div class="social-media">
+                        <a href="https://wa.me/+17325208465" target="_blank" class="social-1"><img src="./images/whatsapp.png" alt="whatsapp"></a>
+                        <a href="https://www.instagram.com/glad__code/" target="_blank" class="social-2"><img src="./images/instagram.png" alt=""></a>
+
+                    </div>
+                    <div class="contact-us">
+                        <a href="./contact.html">
+                            <div class="contact-slide"></div>
+                            <i class="fa-solid fa-phone"></i>
+                            <span>
+                                Contact Us
+                            </span>
+                        </a>
+                    </div>
+                </div>
+
+                <!--Phone navbar-->
+                <div class="navbar-hamburger mobile-bar-open" onclick="open_navbar();"><img src="./images/hamburger.png"
+                        alt=""></div>
+                <nav class="mobile-navbar">
+                    <div class="navbar-hamburger mobile-bar-close" onclick="close_navbar();"><img
+                            src="./images/cross.png" alt=""></div>
+                    <ul>
+                        <a href="./home.html" class="nav-active">
+                            <li>Home</li>
+                            <div></div>
+                        </a>
+                        <div class="dropdown">
+                            <div class="notes-link text-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Notes
+                            </div>
+                            <ol class="dropdown-menu">
+    
+                                <li><a class="dropdown-item" href="./calculus.html">Calculus</a></li>
+                                <li><a class="dropdown-item" href="./pre-calculus.html">Pre-Calculus</a></li>
+                                <li><a class="dropdown-item" href="./apphysics1.html">AP-Physics 1</a></li>
+                                <li><a class="dropdown-item" href="./apphysics2.html">AP-Physics 2</a></li>
+                                <li><a class="dropdown-item" href="./french.html">French</a></li>
+                                <li><a class="dropdown-item" href="./biology.html">Biology</a></li>
+                            </ol>
+                            
+                            <div class="nav-slide"></div>
+                          </div>
+                        <a href="./about.html">
+                            <li>About Us</li>
+                            <div></div>
+                        </a>
+                    </ul>
+                    <div class="nav-contact">
+                        <div class="social-media">
+                            <div class="social-1"><img src="./images/whatsapp.png" alt="whatsapp"></div>
+                            <div class="social-2"><img src="./images/instagram.png" alt=""></div>
+
+                        </div>
+                        <div class="contact-us">
+                            <a href="./contact.html">
+                                <div class="contact-slide"></div>
+                                <i class="fa-solid fa-phone"></i>
+                                <span>
+                                    Contact Us
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+
+                </nav>
+            </nav>
+        </header>
+        <main class="home-content">
+            <div class="sub-home-content">
+
+                <div class="front-blog ">
+                    <div class="front-blog-text front-hide">
+                        <header class="f-blog-heading">
+                            <h1>
+                                Notes And answers for Grade 11
+                            </h1>
+                        </header>
+                        <div class="blog-desc">
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Modi odio impedit in natus
+                            corporis harum voluptatem doloribus, vitae earum vero ea error porro perferendis aperiam
+                            recusandae fugit consequuntur accusantium sed nostrum non!
+                        </div>
+
+                    </div>
+                    <div class="front-blog-img front-hide">
+                        <div class="new-article-tag">
+                            <div></div>
+                            Get relevent and free notes here
+                        </div>
+                        <!-- <button><img src="./images/down-right-arrow.png" alt=""><div  class="front-contact-btn"></div> Contact Us</button> -->
+                    </div>
+                </div>
+                <div class="Next-blogs front-hide">
+                    <aside class="side-heading">
+                        <h1>Home.</h1>
+                        <div class="side-back" style="background-image: url('./images/back.jpg');">
+                        </div>
+                    </aside>
+                    <div class="side-section">
+                        <div class="dynamic-text">
+
+                            <h1>Get Free Notes On </h1>
+                            <ul class="subject">
+                                <li><span>Physics</span></li>
+                                <li><span>Maths</span></li>
+                                <li><span>Chemistry</span></li>
+                                <li><span>French</span></li>
+                                <li><span>Biology</span></li>
+                                <li><span>Pre Calculus</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="all-subjects">
+                <header class="courses-heading">
+                    <div class="home-upper-dots">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <h1>COURSES</h1>
+                </header>
+                <div class="subjects-cards">
+                    <div class="card" style="width: 18rem; ">
+                        <img src="./images/1.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <h5 class="card-text my-4">CALCULUS</h5>
+                            <a href="./calculus.html" class="continue">Continue</a>
+                        </div>
+                        <h1 class="animated-topic-name">CALCULUS</h1>
+                    </div>
+                    <div class="card" style="width: 18rem; ">
+                        <img src="./images/2.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <h5 class="card-text my-4">PRE-CALCULUS</h5>
+                            <a href="./pre-calculus.html" class="continue">Continue</a>
+                        </div>
+                        <h1 class="animated-topic-name">PRE-CALCULUS</h1>
+                    </div>
+                    <div class="card" style="width: 18rem; ">
+                        <img src="./images/3.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <h5 class="card-text my-4">AP-PHYSICS 1</h5>
+                            <a href="./apphysics1.html" class="continue">Continue</a>
+                        </div>
+                        <h1 class="animated-topic-name">AP-PHYSICS 1</h1>
+                    </div>
+                    <div class="card" style="width: 18rem; ">
+                        <img src="./images/3.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <h5 class="card-text my-4">AP-PHYSICS 2</h5>
+                            <a href="./apphysics2.html" class="continue">Continue</a>
+                        </div>
+                        <h1 class="animated-topic-name">AP-PHYSICS 2</h1>
+                    </div>
+                    <div class="card" style="width: 18rem; ">
+                        <img src="./images/2.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <h5 class="card-text my-4">FRENCH</h5>
+                            <a href="./french.html" class="continue">Continue</a>
+                        </div>
+                        <h1 class="animated-topic-name">FRENCH</h1>
+                    </div>
+                    <div class="card" style="width: 18rem; ">
+                        <img src="./images/1.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <h5 class="card-text my-4">BIOLOGY</h5>
+                            <a href="./biology.html" class="continue">Continue</a>
+                        </div>
+                        <h1 class="animated-topic-name">BIOLOGY</h1>
+                    </div>
+
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <div class="upper-dots">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="footer-content">
+                <div class="first-block footer-hide">
+                    <div class="logo">
+                        <img src="./images/logo.png" alt="logo">
+                        <div class="footer-about">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore eius in reiciendis!
+                        </div>
+                        <hr size="1" color="white">
+                    </div>
+                    <div class="contact-details">
+                        <li><img src="./images/social_media/phone.png" alt=""><a href="tel">+123-456-7890</a></li>
+                        <li><img src="./images/social_media/mail.png" alt=""><a
+                                href="mailto:Yoguag27@gmail.com">Yoguag27@gmail.com</a></li>
+                        <li><img src="./images/social_media/location.png" alt=""> Bumaby, BC, Canada</li>
+                    </div>
+                </div>
+                <div class="second-block footer-hide">
+                    <h1>Explore</h1>
+                    <ul>
+                        <a href="#">
+                            <li>HOME</li>
+                        </a><a href="#">
+                            <li>MATHS</li>
+                        </a><a href="#">
+                            <li>PHYSICS</li>
+                        </a><a href="#">
+                            <li>CHEMISTRY</li>
+                        </a><a href="#">
+                            <li>COURSE</li>
+                        </a>
+                    </ul>
+                </div>
+                <div class="footer-follow footer-hide">
+                    <h1>Follow Me</h1>
+                    <ul>
+                        <li><img src="./images/social_media/facebook.png"></li>
+                        <li><img src="./images/social_media/twitter.png"></li>
+                        <li><img src="./images/social_media/linkedin.png"></li>
+                        <li><img src="./images/social_media/instagram.png"></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-view-counter">
+                <img src="./images/eye.png" alt="" width="34" style="margin: 0 10px;">
+                <h1 class="view-counter"> View : 0</h1>
+            </div>
+        </footer>
+
+        </div>
+        <div class="copyright">
+            Copyright © 2021 HelpingNotes All Rights Reserved.
+        </div>
+    </main>
+    <div class="footer-background"></div>
+    <script src="script.js"></script>
+    <script>
+
+        let view_counter = document.querySelector(".view-counter");
+        fetch("https://api.countapi.xyz/update/gladrance/gladsy/?amount=1").then((res) => res.json()).then((res) => {
+            view_counter.innerHTML = `<h1>Views: ${res.value}</h1>`;
+        });
+
+        let documentHeight = document.body.scrollHeight;
+            let currentScroll = window.scrollY + window.innerHeight;
+            let modifier = 900;
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting || currentScroll + modifier > documentHeight) {
+                    entry.target.classList.add('show');
+                } else {
+                    entry.target.classList.remove('show');
+                }
+            });
+        })
+        const cards = document.querySelectorAll('.card');
+        const front_hide = document.querySelectorAll('.front-hide');
+        cards.forEach((el) => observer.observe(el))
+        const footer_hide = document.querySelectorAll('.footer-hide');
+        window.onscroll = () => {
+            console.log(document.documentElement.scrollTop);
+            let documentHeight = document.body.scrollHeight;
+            let currentScroll = window.scrollY + window.innerHeight;
+            let modifier = 200;
+            if (currentScroll + modifier > documentHeight) {
+                footer_hide.forEach(element => {
+                    element.style.top = "0"
+                    element.style.opacity = "1"
+                });
+            }
+            else {
+                footer_hide.forEach(element => {
+                    element.style.opacity = "0"
+                    element.style.top = "60px"
+                });
+            }
+        }
+        window.onload = () => {
+            front_hide.forEach(element => {
+                element.style.top = "0"
+                element.style.opacity = "1"
+            });
+        }
+
+    </script>
+</body>
+
+</html>

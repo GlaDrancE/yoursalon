@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your salon</title>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
+    integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
+    crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+</head>
+<html>
+
+<body>
+  <header class="navbar-header">
+    <nav class="navbar-upper-container">
+      <div class="nav-share">
+        <h2>Share: </h2>
+        <ul>
+          <li><img src="./images/social_media/facebook.png" alt=""></li>
+          <li><img src="./images/social_media/instagram.png" alt=""></li>
+          <li><img src="./images/social_media/twitter.png" alt=""></li>
+          <li><img src="./images/social_media/linked-in.png" alt=""></li>
+        </ul>
+      </div>
+      <div class="logo-container"><img class="logo" src="./images/logo.png" alt="logo"></div>
+    </nav>
+    <nav class="main-navbar-inner">
+      <ul>
+        <a href="/"><li>Home</li></a>
+        <a href="./services.html"><li>Services</li></a>
+        <a href="./about.html"><li>About</li></a>
+        <a href="./contact.html"><li>Contact Us</li></a>
+      </ul>
+    </nav>
+  </header>
+  <main class="website-body">
+    <div class="artist-list-body">
+      <div class="artist-list-cards">
+
+      </div>
+    </div>
+    <div class="subscribe">
+      <div class="sub-container">
+        <div class="subscribe-inner">
+          <header>
+            <h1>Subscribe for News</h1>
+            <h1>Stay in Touch</h1>
+          </header>
+          <div class="subscribe-email">
+            <input id="email" type="email" name="email" placeholder="Email">
+            <button>Subscribe</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </main>
+  <footer>
+    <div class="footer-content">
+      <div class="first-block">
+        <div class="logo"><img src="./images/logo.png" alt="logo">
+          <div class="footer-about">Welcome to Your Salon&apos;s! We are so excited to be able to share our salons with
+            you online.</div>
+          <hr size="1" color="white">
+        </div>
+      </div>
+      <div class="second-block">
+        <h1>Explore</h1>
+        <ul><a href="#">
+            <li>HOME</li>
+          </a><a href="#">
+            <li>SERVICES</li>
+          </a><a href="#">
+            <li>SALON NEAR ME</li>
+          </a><a href="#">
+            <li>BLOGS</li>
+          </a><a href="#">
+            <li>FAQs</li>
+          </a></ul>
+      </div>
+      <div class="footer-follow">
+        <h1>Follow Me</h1>
+        <ul>
+          <li><img src="./images/social_media/facebook.png"></li>
+          <li><img src="./images/social_media/twitter.png"></li>
+          <li><img src="./images/social_media/linked-in.png"></li>
+          <li><img src="./images/social_media/instagram.png"></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+  <script>
+    fetch("http://localhost:3000/salon-data").then(res => res.json()).then(data => setSalonDetails(data))
+    function setSalonDetails(data) {
+      console.log(data);
+      for (let i = 0; i < data.length; i++) {
+        document.querySelector(".artist-list-cards").innerHTML +=
+          `
+      <div class="card" style="margin-bottom:100px;max-width: 100%; background: #DDB1FF;">
+        <div class="row g-0">
+          <div class="col-md-4 salon-background-img" style="background: url(${data[i].imgURL})center center no-repeat;"></div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h2 class="card-title text-uppercase">${data[i].SALON_NAME}</h2>
+              <h5>Name: ${data[i].ARTIST_NAME}
+                <p class="card-text">Address: ${data[i].SALON_ADDRESS}</p>
+                <p class="card-text">PH: ${data[i].SALON_PHONE}</p>
+                <div class="service-card-block">
+                  <h6>Services: </h6>
+                  <h6>${data[i].SERVICES}</h6>
+                </div>
+              </h5>
+            </div>
+            <aside class="specialization-outer">
+              <h6>Specialization:</h6>
+              <h6>${data[i].SPECIALIZATION}</h6>
+            </aside>
+          </div>
+        </div>
+      </div>
+      `
+      }
+    }
+  </script>
+</body>
+
+</html>
