@@ -21,9 +21,9 @@ async function main() {
 // const Contact = mongoose.model('contacts', contactSchema);
 
 const con = mysql.createConnection({
-    host: "localhost",
+    host: "dpg-cf9ousun6mpv49epnfc0-a",
     user: "root",
-    password: "Ayush123",
+    password: "hUR7hbi0zmA3iqvXQsTjo1vNxKzIeCph",
 });
 
 con.connect((err)=>{
