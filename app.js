@@ -6,18 +6,20 @@ var mysql = require('mysql');
 // const cors = require('cors')
 const app = express();
 const port = process.env.PORT || 3000;
+const { Client } = require('pg');
+
+const con = new Client({
+  user: 'root',
+  host: 'dpg-cf9ousun6mpv49epnfc0-a',
+  password:'hUR7hbi0zmA3iqvXQsTjo1vNxKzIeCph'
+})
+con.connect(function(err) {
+  if (err) throw err;
+  console.log("Connected!");
+});
+
 
 // app.use(cors())
-const con = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "Ayush123",
-});
-
-con.connect((err) => {
-    if (err) throw err;
-    console.log("Connected");
-});
 try {
     con.query(`CREATE TABLE IF NOT EXISTS yoursalondb.salon_details (
         SALON_ID int NOT NULL AUTO_INCREMENT,
