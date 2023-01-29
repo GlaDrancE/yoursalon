@@ -9,9 +9,11 @@ const port = process.env.PORT || 3000;
 const { Client } = require('pg');
 
 const con = new Client({
-  user: 'yoursalonDB',
   host: 'dpg-cf9ousun6mpv49epnfc0-a',
-  password:'hUR7hbi0zmA3iqvXQsTjo1vNxKzIeCph'
+  user: 'root',
+  port:5432,
+  password:'hUR7hbi0zmA3iqvXQsTjo1vNxKzIeCph',
+  database: 'yoursalondb'
 })
 con.connect(function(err) {
   if (err) throw err;
