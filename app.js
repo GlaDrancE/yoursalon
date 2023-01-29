@@ -23,8 +23,8 @@ con.connect(function(err) {
 app.use(cors())
 try {
 //     con.query(`CREATE DATABASE yoursalondb`);
-  con.query('drop table salon_details');
-  con.query('drop table subscribe_email');
+//   con.query('drop table salon_details');
+//   con.query('drop table subscribe_email');
     con.query(`CREATE TABLE IF NOT EXISTS salon_details (
         SALON_ID SERIAL,
         SALON_NAME varchar(30) DEFAULT NULL,
