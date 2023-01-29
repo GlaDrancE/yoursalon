@@ -22,8 +22,8 @@ con.connect(function(err) {
 
 // app.use(cors())
 try {
-    con.query(`CREATE DATABASE yoursalondb`);
-    con.query(`CREATE TABLE IF NOT EXISTS yoursalondb.salon_details (
+//     con.query(`CREATE DATABASE yoursalondb`);
+    con.query(`CREATE TABLE IF NOT EXISTS salon_details (
         SALON_ID SERIAL,
         SALON_NAME varchar(30) DEFAULT NULL,
         SALON_ADDRESS varchar(150) DEFAULT NULL,
@@ -35,8 +35,8 @@ try {
         imgURL varchar(100) DEFAULT NULL,
         PRIMARY KEY (SALON_ID)
       )`)
-    con.query(`CREATE TABLE IF NOT EXISTS yoursalondb.subscribe_email (
-        S_EMAIL_ID INTEGER AUTO_INCREMENT PRIMARY KEY,
+    con.query(`CREATE TABLE IF NOT EXISTS subscribe_email (
+        S_EMAIL_ID SERIAL PRIMARY KEY,
         EMAILS VARCHAR(50)
       )`)
 } catch (err) {
@@ -57,7 +57,7 @@ app.get("/artist-list", (req, res) => {
 })
 app.route('/artist-:id').post((req, res) => {
     let id = req.params.id
-    con.query(`SELECT * FROM yoursalondb.salon_details where SALON_ID = ${id}`, (err, result, fields) => {
+    con.query(`SELECT * FROM salon_details where SALON_ID = ${id}`, (err, result, fields) => {
         if (err) throw err;
         res.json(result[0])
     })
@@ -67,12 +67,12 @@ app.route('/artist-:id').get((req, res) => {
 })
 
 app.get("/salon-data", (req, res) => {
-    con.query("SELECT * FROM yoursalondb.salon_details", function (err, result, fields) {
+    con.query("SELECT * FROM salon_details", function (err, result, fields) {
         res.json(result)
     });
 })
 app.post("/add-salon-data-in-database", async (req, res) => {
-    con.query(`insert into yoursalondb.salon_details(SALON_NAME, SALON_ADDRESS,SALON_PHONE, SPECIALIZATION, ARTIST_NAME,SERVICES, SALON_EMAIL, imgURL) values('${req.body.salon_name}','${req.body.salon_add}',${req.body.salon_phone},'${req.body.specialization}','${req.body.artist_name}','${req.body.services}','${req.body.salon_email}','${req.body.imgUrl}')`)
+    con.query(`insert into salon_details(SALON_NAME, SALON_ADDRESS,SALON_PHONE, SPECIALIZATION, ARTIST_NAME,SERVICES, SALON_EMAIL, imgURL) values('${req.body.salon_name}','${req.body.salon_add}',${req.body.salon_phone},'${req.body.specialization}','${req.body.artist_name}','${req.body.services}','${req.body.salon_email}','${req.body.imgUrl}')`)
     res.sendFile(path.join(__dirname, "/addData.html"))
 })
 app.get("/add-salon-data-in-database", (req, res) => {
@@ -80,7 +80,7 @@ app.get("/add-salon-data-in-database", (req, res) => {
 })
 
 app.post(["/", "/artist-list", "/facials", "/bleach-dtan", "/mani-padi", "/waxing", "/hair-care", "/makeup", "/pre-bridal", "/body-deals", "/bridal-makeup", "/threading"], (req, res)=>{
-    con.query(`insert into yoursalondb.subscribe_email(EMAILS) values ('${req.body.email}')`, function(err, result, fields){
+    con.query(`insert into subscribe_email(EMAILS) values ('${req.body.email}')`, function(err, result, fields){
         if (err) {
             throw err;
         }
