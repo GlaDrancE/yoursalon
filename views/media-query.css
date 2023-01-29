@@ -1,0 +1,117 @@
+@media screen and (max-width:950px) {
+    .service-section{
+        width: 100%;
+    }
+    .why-choose-us-container{
+        grid-template-columns: auto;
+    }
+    .why-choose-us-container>img{
+        display: none;
+    }
+    .why-choose-reason .chooseUs-blocks{
+        width: 100%;
+    }
+    .carousel-inner{
+        height: 60vh !important;
+    }
+    .profile-container{
+        width: 95%;
+    }
+}
+@media screen and (max-width:830px){
+    .girls-services{
+        width: 90%;
+    }
+    .select-services{
+        width: 90%;
+    }
+    
+    .scene1-msg h1:nth-of-type(2){
+        font-size: 2rem;
+    }
+    .artist-list-body{
+        width: 95%;
+    }
+}
+@media screen and (max-width:760px) {
+    .card::before{
+        display: block;
+    }
+    .card{color:white;}
+}
+@media screen and (max-width:550px) {
+    .nav-share{
+        flex-direction: column;
+        height: auto;
+    }
+    .girls-services ul a{
+        flex-direction:column;
+    }
+    .girls-services ul:nth-of-type(2) a{
+        flex-direction:column-reverse;
+    }
+    .select-services a{
+        flex-direction: column;
+    }
+}
+@media screen and (max-width:620px) {
+    .explore-btn{
+        top: 45%;
+        left: 40%;
+    }
+    .profile-card{
+        flex-direction: column;
+    }
+
+}
+@media screen and (max-width:530px) {
+    .main-navbar-inner{
+        display: none;
+    }
+    .open_menu{
+        display: block !important;
+    }
+    .navbar-upper-container{
+        width: 100%;
+    }
+    .subscribe-inner header h1:nth-child(2){
+        font-size: 3rem;
+    }
+    footer{
+        padding: 10px;
+    }
+}
+@media screen and (max-width:400px) {
+    .first-block .logo .footer-about{
+        width: 90vw;
+    }
+    .subscribe-email{
+        width: 90%;
+    }
+    .subscribe-inner header h1:nth-child(2){
+        font-size: 2rem;
+    }
+    .why-choose-reason .chooseUs-blocks{
+        font-size: 1rem;
+    }
+    
+    .scene1-msg h1:nth-of-type(1){font-size: 2rem;}
+    .specialization{
+        flex-direction: column;
+        text-align: center;
+    }
+}
+@media screen and (max-width:330px) {
+    .nav-share{
+        display: none;
+    }
+    .mobile-nav-share{
+        display: flex;
+    }
+    .navbar-upper-container{
+        justify-content: center;
+    }
+    .girls-services{
+        width: 100%;
+    }
+}
