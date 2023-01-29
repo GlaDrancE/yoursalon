@@ -168,16 +168,16 @@
 
         fetch(`/artist-${window.location.pathname.slice(-1)}`, {
             method: 'POST',
-              headers: {
-                 Accept: 'application.json',
+            headers: {
                 'Content-Type': 'application/json'
-               }
-           }).then(response => response.json()).then(data => {
+            },
+        }).then(response => response.json()).then(data => {
                 console.log(data);
-                setProfile(data.rows)
+                setProfile(data)
             }).catch((error) => {
                 console.error('Error:', error);
             });
+
 
         function setProfile(data) {
             let services = data.services.split(",")
