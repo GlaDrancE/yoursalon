@@ -1,8 +1,7 @@
 const express = require('express');
 const path = require('path');
-// const mongoose = require("mongoose")
 const bodyparser = require("body-parser");
-var mysql = require('mysql');
+// var mysql = require('mysql');
 // const cors = require('cors')
 const app = express();
 const port = process.env.PORT || 3000;
@@ -24,7 +23,7 @@ con.connect(function(err) {
 // app.use(cors())
 try {
     con.query(`CREATE TABLE IF NOT EXISTS yoursalondb.salon_details (
-        SALON_ID int NOT NULL AUTO_INCREMENT,
+        SALON_ID int SERIAL,
         SALON_NAME varchar(30) DEFAULT NULL,
         SALON_ADDRESS varchar(150) DEFAULT NULL,
         SALON_PHONE decimal(10,0) DEFAULT NULL,
