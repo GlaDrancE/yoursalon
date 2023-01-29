@@ -155,24 +155,24 @@
       for (let i = 0; i < data.length; i++) {
         document.querySelector(".artist-list-cards").innerHTML +=
           `
-      <a href="artist-${data[i].SALON_ID}" class="card" style="margin-bottom:100px;max-width: 100%; background: ${x.matches ? `url( ${data[i].imgURL})`:'#DDB1FF'} center center no-repeat"; background-size:cover;>
+      <a href="artist-${data[i].salon_id}" class="card" style="margin-bottom:100px;max-width: 100%; background: ${x.matches ? `url( ${data[i].imgURL})`:'#DDB1FF'} center center no-repeat"; background-size:cover;>
         <div class="row g-0">
-          <div class="col-md-4 salon-background-img" style="background: url(${data[i].imgURL})center center no-repeat;"></div>
+          <div class="col-md-4 salon-background-img" style="background: url(${data[i].imgurl})center center no-repeat;"></div>
           <div class="col-md-8">
             <div class="card-body">
-              <h2 class="card-title text-uppercase">${data[i].SALON_NAME}</h2>
-              <h5>Name: ${data[i].ARTIST_NAME}</h5>
-                <p class="card-text">Address: ${data[i].SALON_ADDRESS}</p>
-                <p class="card-text salon-phone">PH: ${data[i].SALON_PHONE}</p>
+              <h2 class="card-title text-uppercase">${data[i].salon_name}</h2>
+              <h5>Name: ${data[i].artist_name}</h5>
+                <p class="card-text">Address: ${data[i].salon_address}</p>
+                <p class="card-text salon-phone">PH: ${data[i].salon_phone}</p>
                 <div class="service-card-block">
                   <h6>Services: </h6>
-                  <h6>${data[i].SERVICES}</h6>
+                  <h6>${data[i].services}</h6>
                 </div>
               </h5>
             </div>
             <aside class="specialization-outer text-uppercase">
               <h6>Specialization:</h6>
-              <h6>${data[i].SPECIALIZATION}</h6>
+              <h6>${data[i].specialization}</h6>
             </aside>
           </div>
         </div>
