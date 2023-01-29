@@ -175,31 +175,31 @@
             .then(response => response.json())
             .then(data => {
                 console.log(data);
-                setProfile(data)
+                setProfile(data.rows)
             })
             .catch((error) => {
                 console.error('Error:', error);
             });
 
         function setProfile(data) {
-            let services = data.SERVICES.split(",")
+            let services = data.services.split(",")
             console.log(services);
             for (let i = 0; i < services.length; i++) {
                 document.querySelector(".provided-services").innerHTML +=
                     `<li><input type="checkbox"><span>${services[i]}</span></li>`
             }
             document.querySelector(".profile-card").innerHTML += `
-                    <div style="background:url(${data.imgURL})center center no-repeat; background-size: cover;"
+                    <div style="background:url(${data.imgurl})center center no-repeat; background-size: cover;"
                         class="profile-img">
                     </div>
                     <div class="col-md-8 my-3">
                         <div class="card-body">
-                            <h2 class="card-title text-uppercase">${data.SALON_NAME}</h2>
-                            <h5>Name: ${data.ARTIST_NAME}</h5>
-                            <p class="card-text">Address: ${data.SALON_ADDRESS}</p>
+                            <h2 class="card-title text-uppercase">${data.salon_name}</h2>
+                            <h5>Name: ${data.artist_name}</h5>
+                            <p class="card-text">Address: ${data.salon_address}</p>
                             <div class="makeappointment">
                                 <div>
-                                    <a href="tel:${data.SALON_PHONE}" class="makeCall">Make a call</a>
+                                    <a href="tel:${data.salon_phone}" class="makeCall">Make a call</a>
                                 </div>
                                 <div>
                                     <button onclick="show_appointment_form()">Make appointment</button>
@@ -208,7 +208,7 @@
                             
                             <aside class="p-3 d-flex specialization text-uppercase" style="width:100%; background:#2EFFA7">
                                 <h6 class="mx-2 mb-0">Specialization:</h6>
-                                <h6 class="m-0">${data.SPECIALIZATION}</h6>
+                                <h6 class="m-0">${data.specialization}</h6>
                             </aside>
                         </div>
                     </div>
