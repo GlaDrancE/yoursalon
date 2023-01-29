@@ -655,7 +655,6 @@ color: rgb(0, 0, 0);
     background-size: cover !important;
 }
 .service-card-block{
-    display: flex;
     padding: 10px;
     box-sizing: border-box;
     background: #C780FF;
