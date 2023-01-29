@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 const bodyparser = require("body-parser");
 // var mysql = require('mysql');
-// const cors = require('cors')
+const cors = require('cors')
 const app = express();
 const port = process.env.PORT || 3000;
 const { Client } = require('pg');
@@ -20,7 +20,7 @@ con.connect(function(err) {
 });
 
 
-// app.use(cors())
+app.use(cors())
 try {
 //     con.query(`CREATE DATABASE yoursalondb`);
     con.query(`CREATE TABLE IF NOT EXISTS salon_details (
