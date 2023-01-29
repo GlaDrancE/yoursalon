@@ -73,7 +73,7 @@ app.get("/salon-data", (req, res) => {
 })
 app.post("/add-salon-data-in-database", async (req, res) => {
     con.query(`insert into salon_details(SALON_NAME, SALON_ADDRESS,SALON_PHONE, SPECIALIZATION, ARTIST_NAME,SERVICES, SALON_EMAIL, imgURL) values('${req.body.salon_name}','${req.body.salon_add}',${req.body.salon_phone},'${req.body.specialization}','${req.body.artist_name}','${req.body.services}','${req.body.salon_email}','${req.body.imgUrl}')`)
-    con.query("select * from salon_details", function(err, result){console.log(result});  
+    con.query("select * from salon_details", function(err, result){console.log(result)});  
   res.sendFile(path.join(__dirname, "/addData.html"))
 })
 app.get("/add-salon-data-in-database", (req, res) => {
