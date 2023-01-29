@@ -173,7 +173,7 @@
             },
         }).then(response => response.json()).then(data => {
                 console.log(data);
-                setProfile(data)
+                setProfile(data.rows[0])
             }).catch((error) => {
                 console.error('Error:', error);
             });
