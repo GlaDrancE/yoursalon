@@ -146,7 +146,7 @@
   </footer>
   <script src="script.js"></script>
   <script>
-    fetch(`${window.location.origin}/salon-data`).then(res => res.json()).then(data => setSalonDetails(data))
+    fetch("/salon-data").then(res => res.json()).then(data => setSalonDetails(data))
 
 
     var x = window.matchMedia("(max-width: 760px)")
