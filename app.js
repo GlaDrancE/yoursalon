@@ -22,7 +22,7 @@ con.connect(function(err) {
 
 // app.use(cors())
 try {
-    con.query("CREATE DATABASE IF NOT EXISTS yoursalondb;");
+    con.query("CREATE DATABASE IF NOT EXISTS yoursalondb");
     con.query(`CREATE TABLE IF NOT EXISTS yoursalondb.salon_details (
         SALON_ID SERIAL,
         SALON_NAME varchar(30) DEFAULT NULL,
