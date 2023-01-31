@@ -102,7 +102,7 @@ app.route('/artist-:id').post((req, res) => {
         if (err) throw err;
         res.json(result[0])
     })
-    con.query(`SELECT salon_phone FROM yoursalondb.salon_details where SALON_ID = ${id}`, (err, result, fields) => {
+    con.query(`SELECT salon_phone FROM salon_details where SALON_ID = ${id}`, (err, result, fields) => {
         artistPhone = result;
     })
 })
@@ -123,12 +123,12 @@ app.route('/artist-:id').get((req, res) => {
 })
 
 app.get("/salon-data", (req, res) => {
-    con.query("SELECT * FROM yoursalondb.salon_details", function (err, result, fields) {
+    con.query("SELECT * FROM salon_details", function (err, result, fields) {
         res.json(result)
     });
 })
 app.post("/add-salon-data-in-database", async (req, res) => {
-    con.query(`insert into yoursalondb.salon_details(SALON_NAME, SALON_ADDRESS,SALON_PHONE, SPECIALIZATION, ARTIST_NAME,SERVICES, SALON_EMAIL, imgURL) values('${req.body.salon_name}','${req.body.salon_add}',${req.body.salon_phone},'${req.body.specialization}','${req.body.artist_name}','${req.body.services}','${req.body.salon_email}','${req.body.imgUrl}')`)
+    con.query(`insert into salon_details(SALON_NAME, SALON_ADDRESS,SALON_PHONE, SPECIALIZATION, ARTIST_NAME,SERVICES, SALON_EMAIL, imgURL) values('${req.body.salon_name}','${req.body.salon_add}',${req.body.salon_phone},'${req.body.specialization}','${req.body.artist_name}','${req.body.services}','${req.body.salon_email}','${req.body.imgUrl}')`)
     res.sendFile(path.join(__dirname, "/addData.html"))
 })
 app.get("/add-salon-data-in-database", (req, res) => {
@@ -136,7 +136,7 @@ app.get("/add-salon-data-in-database", (req, res) => {
 })
 
 app.post(["/", "/artist-list", "/facials", "/bleach-dtan", "/mani-padi", "/waxing", "/hair-care", "/makeup", "/pre-bridal", "/body-deals", "/bridal-makeup", "/threading"], (req, res)=>{
-    con.query(`insert into yoursalondb.subscribe_email(EMAILS) values ('${req.body.email}')`)
+    con.query(`insert into subscribe_email(EMAILS) values ('${req.body.email}')`)
     res.redirect(req.originalUrl);
 })
 app.post("/contact", (req, res) => {
