@@ -98,9 +98,9 @@ app.get("/artist-list", (req, res) => {
 let artistPhone;
 app.route('/artist-:id').post((req, res) => {
     let id = req.params.id
-    con.query(`SELECT * FROM yoursalondb.salon_details where SALON_ID = ${id}`, (err, result, fields) => {
+    con.query(`SELECT * FROM salon_details where SALON_ID = ${id}`, (err, result, fields) => {
         if (err) throw err;
-        res.json(result[0])
+        res.json(result.rows[0])
     })
     con.query(`SELECT salon_phone FROM salon_details where SALON_ID = ${id}`, (err, result, fields) => {
         artistPhone = result;
@@ -124,7 +124,7 @@ app.route('/artist-:id').get((req, res) => {
 
 app.get("/salon-data", (req, res) => {
     con.query("SELECT * FROM salon_details", function (err, result, fields) {
-        res.json(result)
+        res.json(result.rows)
     });
 })
 app.post("/add-salon-data-in-database", async (req, res) => {
