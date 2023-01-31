@@ -80,8 +80,19 @@
     footer{
         padding: 10px;
     }
+    .service-card-block{
+        flex-direction: column;
+        text-align: center;
+        display: block;
+    }
+    .Thanks-msg{
+        font-size: 5vw;
+    }
 }
 @media screen and (max-width:400px) {
+    .Thanks-msg{
+        font-size: 6vw;
+    }
     .first-block .logo .footer-about{
         width: 90vw;
     }
@@ -104,6 +115,9 @@
 @media screen and (max-width:330px) {
     .nav-share{
         display: none;
+    }
+    .Thanks-msg{
+        font-size: 7vw;
     }
     .mobile-nav-share{
         display: flex;

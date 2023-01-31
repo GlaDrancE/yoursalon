@@ -50,3 +50,5 @@ function close_mobile_menu() {
     document.querySelector(".mobile-nav").style.opacity="0"
     document.querySelector(".mobile-nav").style.left="-100%"
 }
+
+

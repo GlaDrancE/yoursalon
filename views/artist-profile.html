@@ -18,14 +18,6 @@
 </head>
 
 <body>
-        <div id="preloader">
-        <div class="loadingio-spinner-ripple-tmoebs6vbwh">
-            <div class="ldio-iu50y1qwiqb">
-                <div></div>
-                <div></div>
-            </div>
-        </div>
-    </div>
     <header class="navbar-header">
         <nav class="navbar-upper-container">
             <div class="nav-share">
@@ -99,20 +91,34 @@
             </div>
         </div>
         <div class="service-container">
-            <img src="./images/symbols/cross.png" alt="..." class="close-app-form" width="40" onclick="close_app_form()">
+            <img src="./images/symbols/cross.png" alt="..." class="close-app-form" width="40"
+                onclick="close_app_form()">
             <div class="service-details">
-                <form>
+                <form id="user-form" method="post" action="/make-appoinment">
                     <div class="mb-3">
                         <label for="userName" class="form-label">Full name</label>
-                        <input type="Name" class="form-control" id="userName" aria-describedby="emailHelp">
+                        <input type="Name" class="form-control" name="userName" id="userName"
+                            aria-describedby="nameHelp">
                     </div>
                     <div class="mb-3">
                         <label for="userPhone" class="form-label">Phone number</label>
-                        <input type="number" class="form-control" id="userPhone">
+                        <input type="number" class="form-control" name="userPhone" id="userPhone">
                     </div>
+                    <div class="d-flex">
+
+                        <div class="date-picker">
+                            <input type="date" id="datepicker" class="datepicker" name="userDate" />
+                        </div>
+                        <div class="mb-3">
+                            <input type="time" id="timepicker" class="datepicker" name="userTime" />
+                        </div>
+                    </div>
+
+
+
                     <ul class="provided-services">
                     </ul>
-                    <button type="submit" class="btn btn-primary">Make appointment</button>
+                    <button type="submit" onclick="sendServices()" class="btn btn-primary">Make appointment</button>
                 </form>
             </div>
 
@@ -156,48 +162,77 @@
         </div>
     </footer>
     <script src="script.js"></script>
-    <script>
-        // fetch(`http://localhost:3000/path`,
-        //     {
-        //         method: 'POST',
-        //         headers: {
-        //             'Content-Type': 'application/json'
-        //         },
-        //         body: JSON.stringify({ ayus: "name" })
-        //     }).then(res => res.json()).then(data => console.log(data));
 
+    <script>
+        const datepicker = document.getElementById("datepicker");
+
+        datepicker.addEventListener("click", function () {
+            let today = new Date();
+            let dd = String(today.getDate()).padStart(2, "0");
+            let mm = String(today.getMonth() + 1).padStart(2, "0");
+            let yyyy = today.getFullYear();
+            today = yyyy + "-" + mm + "-" + dd;
+            datepicker.setAttribute("min", today);
+        });
+
+        // var today = new Date().toISOString().split('T')[0];
+        // var hours = new Date().getHours();
+        // var mins = new Date().getMinutes();
+        // console.log(hours);
+        // document.getElementById("date_time").setAttribute('min', today+"T"+hours+":"+mins);
         fetch(`/artist-${window.location.pathname.slice(-1)}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
         }).then(response => response.json()).then(data => {
-                console.log(data);
-                setProfile(data.rows[0])
-            }).catch((error) => {
+            console.log(data);
+            setProfile(data)
+        }).catch((error) => {
+            console.error('Error:', error);
+        });
+        let selected_services = new Array();
+        function selectService(e) {
+            selected_services.push(e.value);
+            console.log(selected_services);
+        }
+        function sendServices() {
+            
+        fetch('/make-appoinment', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ selected_services })
+        })
+            .then(res => res.json())
+            .then(response => {
+                console.log('Success:', JSON.stringify(response));
+            })
+            .catch(error => {
                 console.error('Error:', error);
             });
 
-
+        }
         function setProfile(data) {
-            let services = data.services.split(",")
+            let services = data.SERVICES.split(",")
             console.log(services);
             for (let i = 0; i < services.length; i++) {
                 document.querySelector(".provided-services").innerHTML +=
-                    `<li><input type="checkbox"><span>${services[i]}</span></li>`
+                    `<li><input type="checkbox" onclick="selectService(this)" id="service_checkbox${i}" name="service" value="${services[i]}"><label for="service_checkbox${i}">${services[i]}</label></li>`
             }
             document.querySelector(".profile-card").innerHTML += `
-                    <div style="background:url(${data.imgurl})center center no-repeat; background-size: cover;"
+                    <div style="background:url(${data.imgURL})center center no-repeat; background-size: cover;"
                         class="profile-img">
                     </div>
                     <div class="col-md-8 my-3">
                         <div class="card-body">
-                            <h2 class="card-title text-uppercase">${data.salon_name}</h2>
-                            <h5>Name: ${data.artist_name}</h5>
-                            <p class="card-text">Address: ${data.salon_address}</p>
+                            <h2 class="card-title text-uppercase">${data.SALON_NAME}</h2>
+                            <h5>Name: ${data.ARTIST_NAME}</h5>
+                            <p class="card-text">Address: ${data.SALON_ADDRESS}</p>
                             <div class="makeappointment">
                                 <div>
-                                    <a href="tel:${data.salon_phone}" class="makeCall">Make a call</a>
+                                    <a href="tel:${data.SALON_PHONE}" class="makeCall">Make a call</a>
                                 </div>
                                 <div>
                                     <button onclick="show_appointment_form()">Make appointment</button>
@@ -206,17 +241,17 @@
                             
                             <aside class="p-3 d-flex specialization text-uppercase" style="width:100%; background:#2EFFA7">
                                 <h6 class="mx-2 mb-0">Specialization:</h6>
-                                <h6 class="m-0">${data.specialization}</h6>
+                                <h6 class="m-0">${data.SPECIALIZATION}</h6>
                             </aside>
                         </div>
                     </div>
                 `
         }
-        function show_appointment_form(){
+        function show_appointment_form() {
             document.querySelector(".service-container").style.zIndex = "999999"
             document.querySelector(".service-container").style.opacity = "1"
         }
-        function close_app_form(){
+        function close_app_form() {
             document.querySelector(".service-container").style.zIndex = "-1"
             document.querySelector(".service-container").style.opacity = "0"
         }

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thanks for appointemnt</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="media-query.css">
+</head>
+<body>
+    <header class="navbar-header">
+        <nav class="navbar-upper-container">
+            <div class="nav-share">
+                <h2>Share: </h2>
+                <ul>
+                    <li><img src="./images/social_media/facebook.png" alt=""></li>
+                    <li><img src="./images/social_media/instagram.png" alt=""></li>
+                    <li><img src="./images/social_media/twitter.png" alt=""></li>
+                    <li><img src="./images/social_media/linked-in.png" alt=""></li>
+                </ul>
+            </div>
+            <div class="logo-container">
+                <img src="./images/symbols/logo.png" alt="logo" class="logo">
+            </div>
+
+        </nav>
+        <nav class="mobile-nav">
+            <ul>
+                <a href="/"><li>Home</li></a>
+                <a href="/artist-list"><li>Near Salons</li></a>
+                <!-- <a href="./about.html"><li>About</li></a>
+                <a href="./contact.html"><li>Contact Us</li></a> -->
+            </ul>
+            <div class="mobile-nav-share">
+                <h2>Share: </h2>
+                <ul>
+                    <li><img src="./images/social_media/facebook.png" alt=""></li>
+                    <li><img src="./images/social_media/instagram.png" alt=""></li>
+                    <li><img src="./images/social_media/twitter.png" alt=""></li>
+                    <li><img src="./images/social_media/linked-in.png" alt=""></li>
+                </ul>
+            </div>
+            <img width="32px" style="position:absolute; top:0;right:0;" src="./images/symbols/cross.png" alt="" class="close_menu" onclick="close_mobile_menu()">
+        </nav>
+        <nav class="main-navbar">
+            <img onclick="open_mobile_menu()" style="position: relative; z-index: 999; top: -30px; display: none;" class="open_menu"width="32px" src="./images/symbols/hamburger.png" alt="">
+
+            <nav class="main-navbar-inner">
+                <ul>
+                    <a href="/"><li>Home</li></a>
+                    <a href="/artist-list"><li>Near Salons</li></a>
+                    <!-- <a href="./about.html"><li>About</li></a>
+                    <a href="./contact.html"><li>Contact Us</li></a> -->
+                    
+                </ul>
+            </nav>
+        </nav>
+    </header>
+
+
+<div class="website-body">
+    <div class="Thanks-msg">
+        <h1>Thanks for using our service</h1>
+        <DIV class="back-button"><a href="/">Back to Home</a></DIV>
+    </div>
+</div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="first-block">
+                <div class="logo">
+                    <img src="./images/symbols/logo.png" alt="logo">
+                    <div class="footer-about">
+                        Welcome to Your Salon's! We are so excited to be able to share our salons with you online.
+                    </div>
+                    <hr size="1" color="white">
+                </div>
+            </div>
+            <div class="second-block">
+                <h1>Explore</h1>
+                <ul>
+                    <a href="/">
+                        <li>HOME</li>
+                    </a><a href="/artist-list">
+                        <li>SALON NEAR ME</li>
+                    </a><!-- <a href="/artist-list">
+                        <li>BLOGS</li>
+                    </a><a href="/artist-list">
+                        <li>FAQs</li>
+                    </a> -->
+                </ul>
+            </div>
+            <div class="footer-follow">
+                <h1>Follow Me</h1>
+                <ul>
+                    <li><img src="./images/social_media/facebook.png"></li>
+                    <li><img src="./images/social_media/twitter.png"></li>
+                    <li><img src="./images/social_media/linked-in.png"></li>
+                    <li><img src="./images/social_media/instagram.png"></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
